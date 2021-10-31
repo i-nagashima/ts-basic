@@ -11,6 +11,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js',
+    publicPath: '/dist/',
   },
   // import文でファイル拡張子を書かずに名前解決するための設定
   // 例...「import World from './world'」と記述すると"world.ts"という名前のファイルをモジュールとして探す
@@ -19,9 +20,10 @@ module.exports = {
   },
   // webpack-dev-server の設定
   devServer: {
-    static: {
-      directory: path.join(__dirname, 'dist'),
-    },
+    // バージョン4からstaticファイルはpublicフォルダに置くこととなった
+    // static: {
+    //   directory: path.join(__dirname),
+    // },
     open: true,
   },
   // モジュールに適用するルールの設定（ローダーの設定を行う事が多い）
